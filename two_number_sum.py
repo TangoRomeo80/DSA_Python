@@ -32,3 +32,12 @@ def twoNumberSumSorted(array, targetSum):
         else:
             right -= 1
     return []
+
+
+
+arr = [0, 1, 2, 3, 4, 5, 6]
+target = 10
+
+# print(twoNumberSumNaive(arr, target))
+# print(twoNumberSumHash(arr, target))
+# print(twoNumberSumSorted(arr, target))
