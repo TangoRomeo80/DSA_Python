@@ -18,5 +18,16 @@ def validateSubsequence(arr, seq):
         return True
   return False
 
-
-
+#sorted square array
+def sortedSquaredArray(arr):
+  sortedSquares = [0 for _ in arr]
+  left = 0
+  right  = len(arr) - 1
+  for i in reversed(range(len(arr))):
+    if abs(arr[left]) > abs(arr[right]):
+      sortedSquares[i] = arr[left]**2
+      left += 1
+    else:
+      sortedSquares[i] = arr[right]**2
+      right -= 1
+  return sortedSquares
