@@ -7,12 +7,18 @@ def tournamentWinner(competitions, results):
         homeTeam, awayTeam = competition
 
         if result == 1:
-            scores[homeTeam] += 3
-            if scores[homeTeam] > scores[currentBest]:
-                currentBest = homeTeam
+            if homeTeam not in scores:
+                scores[homeTeam] = 0
+            else:
+                scores[homeTeam] += 3
+                if scores[homeTeam] > scores[currentBest]:
+                    currentBest = homeTeam
         elif result == 0:
-            scores[awayTeam] += 3
-            if scores[awayTeam] > scores[currentBest]:
-                currentBest = awayTeam
+            if awayTeam not in scores:
+                scores[awayTeam] = 0
+            else:
+                scores[awayTeam] += 3
+                if scores[awayTeam] > scores[currentBest]:
+                    currentBest = awayTeam
 
     return currentBest
