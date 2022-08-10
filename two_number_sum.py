@@ -6,17 +6,29 @@ def twoNumberSumNaive(array, targetSum):
                 return [array[i], array[j]]
     return []
 
+
+
 #O(n) time | O(n) space implementation
-def twoNumberSumHash(array, targetSum):
-    nums = {}
-    for num in array:
-        potentialMatch = targetSum - num
-        if potentialMatch in nums:
-            return [potentialMatch, num]
+def twoNumberSumHash(nums, target):
+    store = {}
+    for i in range(len(nums) - 1):
+        potentialMatch = target - nums[i]
+        if potentialMatch in store:
+            return [store[potentialMatch], i]
         else:
-            nums[num] = True
+            store[nums[i]] = i
+                
     return []
 
+#O(n) time | O(n) space implementation that returns the indices of the two numbers
+def twoNumberSumHashIndices(nums, target):
+    store = {} #value: index
+    for i,n in enumerate(nums):
+        potentialMatch = target - n
+        if potentialMatch in store:
+            return [store[potentialMatch], i]
+        store[n] = i
+    return
 
 #O(n log n) time | O(1) space implementation
 def twoNumberSumSorted(array, targetSum):
@@ -35,9 +47,10 @@ def twoNumberSumSorted(array, targetSum):
 
 
 
-arr = [0, 1, 2, 3, 4, 5, 6]
-target = 10
+arr = [3, 2, 4]
+target = 6
 
 # print(twoNumberSumNaive(arr, target))
 # print(twoNumberSumHash(arr, target))
 # print(twoNumberSumSorted(arr, target))
+print(twoNumberSumHashIndices(arr, target))
