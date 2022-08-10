@@ -5,7 +5,7 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+    def sortedArrayToBST(self, nums):
 
         def helper(l, r):
             if l > r:
