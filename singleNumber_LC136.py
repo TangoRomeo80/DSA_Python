@@ -1,4 +1,4 @@
-def singleNumber(nums):
+def singleNumberHash(nums):
     d = {}
     for i in nums:
         if i in d:
@@ -9,3 +9,10 @@ def singleNumber(nums):
     for i in d:
         if d[i] == 1:
             return i
+
+
+def singleNumberBit(nums):
+    res = 0
+    for n in nums:
+        res ^= n
+    return res
