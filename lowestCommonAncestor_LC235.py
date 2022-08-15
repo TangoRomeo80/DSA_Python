@@ -15,3 +15,13 @@ class Solution:
         if left and right:
             return root
         return left if left else right
+
+    def lowestCommonAncestor_2(self, root, p, q):
+        cur = root
+        while cur:
+            if p.val > cur.val and q.val > cur.val:
+                cur = cur.right
+            elif p.val < cur.val and q.val < cur.val:
+                cur = cur.left
+            else:
+                return cur
