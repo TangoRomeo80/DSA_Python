@@ -4,14 +4,31 @@ class ListNode:
         self.next = next
 class Solution:
     def reverseList(head):
+        # if not head:
+        #     return None
+        # prev = None
+        # curr = head
+        # while curr:
+        #     next = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = next
+        # return prev
+        
+        #stack implementation
         if not head:
             return None
-        prev = None
+        
+        s = []
         curr = head
         while curr:
-            next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        return prev
+            s.append(curr.val)
+            curr = curr.next
+        newHead = ListNode(s.pop())
+        dummy = ListNode(next=newHead)
+        while s:
+            newHead.next = ListNode(s.pop())
+            newHead = newHead.next
+            
+        return dummy.next
         
