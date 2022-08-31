@@ -1,11 +1,19 @@
 def wordPattern(pattern, s):
-    words = s.split()
+    words = s.split(' ')
     if len(words) != len(pattern):
         return False
-    d = {}
-    for i in range(len(words)):
-        if pattern[i] not in d:
-            d[pattern[i]] = words[i]
-        elif d[pattern[i]] != words[i]:
+        
+    ctw = {}
+    wtc = {}
+
+    for c, w in zip(pattern, words):
+        if c in ctw and ctw[c] != w:
             return False
+        if w in wtc and wtc[w] != c:
+            return False
+        ctw[c] = w
+        wtc[w] = c
+
     return True
+
+    
