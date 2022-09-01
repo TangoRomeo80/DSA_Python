@@ -24,4 +24,4 @@ def longestCommonSubsequence(text1, text2):
     
     return res
 
-print(longestCommonSubsequence('abab', 'baba'))
+print(longestCommonSubsequence('abcde', 'ace'))
