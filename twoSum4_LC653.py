@@ -5,7 +5,7 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def findTarget(self, rootk):
+    def findTarget(self, root, k):
         d = {}
         
         def traverse(root, k):
