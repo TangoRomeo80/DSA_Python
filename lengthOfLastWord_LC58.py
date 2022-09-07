@@ -9,4 +9,4 @@ def lengthOfLastWord(s):
             length += 1
         else:
             break
-        return length
+    return length
