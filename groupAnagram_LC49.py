@@ -15,3 +15,19 @@ def groupAnagrams(strs):
     # # return the values of the dictionary
     # return anagrams.values()
 
+    #O(m . n . 26) solution
+    res = {} #mapping charCount to list of Anagrams
+
+    for s in strs:
+        charCount = [0] * 26 #26 letters in the alphabet
+        for c in s:
+            charCount[ord(c) - ord('a')] += 1
+        if tuple(charCount) not in res:
+            res[tuple(charCount)] = [s]
+        else:
+            res[tuple(charCount)].append(s)
+
+    return res.values()
+
+    
+
