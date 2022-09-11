@@ -1,29 +1,25 @@
-from collections import deque
-
+import collections
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    def rightSideView(self, root):
         res = []
-        q = collections.deque()
-        if root:
-            q.append(root)
+        q = collections.deque([root])
 
         while q:
-            val = []
+            rightSide = None
+            qLen = len(q)
 
-            for i in range(len(q)):
+            for i in range(qLen):
                 node = q.popleft()
-                val.append(node.val)
-                if node.left:
+                if node:
+                    rightSide = node
                     q.append(node.left)
-                if node.right:
                     q.append(node.right)
-            res.append(val)
+            if rightSide:
+                res.append(rightSide.val)
         return res
