@@ -13,4 +13,4 @@ def permutation(lst):
 
     return res
 
-print(permutation([1, 2, 3]))
+print(permutation([1, 2, 3])) 
