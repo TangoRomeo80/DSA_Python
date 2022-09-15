@@ -29,3 +29,4 @@ class Solution:
 
 x = Solution()
 print(x.encode(["abc", "def"]))
+print(x.decode(x.encode(["abc", "def"])))
