@@ -1,0 +1,30 @@
+#combine two tables:---------------------------------
+
+SELECT FirstName, LastName, City, State
+FROM Person LEFT JOIN Address
+ON Person.PersonId = Address.PersonId;
+
+------------------------------------------------------
+
+#second highest salary:-------------------------------
+
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+SELECT DISTINCT
+    Salary AS SecondHighestSalary
+FROM
+    Employee
+ORDER BY Salary DESC
+LIMIT 1 OFFSET 1
+
+-------------------------------------------------------
+
+#nth highest salary:-------------------------------
+
+SELECT DISTINCT salary FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET N - 1
+
+------------------------------------------------------\
