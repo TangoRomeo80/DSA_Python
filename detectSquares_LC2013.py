@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class DetectSquares:
 
     def __init__(self):
