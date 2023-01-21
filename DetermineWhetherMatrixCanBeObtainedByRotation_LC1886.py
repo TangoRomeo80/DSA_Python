@@ -11,13 +11,27 @@ class Solution:
         return False
 
     def rotate(self, mat):
-        n = len(mat)
-        for i in range(n):
-            for j in range(i, n):
-                mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+        l, r = 0, len(mat) - 1
+        while l < r:
+            for i in range(r - l):
+                top, bottom = l, r
 
-        for i in range(n):
-            mat[i].reverse()
+                # save the topleft
+                topLeft = mat[top][l + i]
+
+                # move bottom left into top left
+                mat[top][l + i] = mat[bottom - i][l]
+
+                # move bottom right into bottom left
+                mat[bottom - i][l] = mat[bottom][r - i]
+
+                # move top right into bottom right
+                mat[bottom][r - i] = mat[top + i][r]
+
+                # move top left into top right
+                mat[top + i][r] = topLeft
+            r -= 1
+            l += 1
 
         return mat
         
