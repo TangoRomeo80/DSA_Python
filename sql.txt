@@ -47,3 +47,14 @@ WHERE
     l1.Id = l2.Id - 1
     AND l2.Id = l3.Id - 1
     AND l1.Num = l2.Num
+
+Employees Earning More than Their Managers (LC181)----------------------------------------------------------------
+
+SELECT
+    e1.Name AS Employee
+FROM
+    Employee e1,
+    Employee e2
+WHERE
+    e1.ManagerId = e2.Id
+    AND e1.Salary > e2.Salary
