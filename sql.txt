@@ -68,3 +68,15 @@ FROM
 GROUP BY Email
 HAVING COUNT(Email) > 1
 
+Customers Who Never Order (LC183)---------------------------------------------------------------------------------
+
+SELECT
+    Name AS Customers
+FROM
+    Customers
+WHERE
+    Id NOT IN (SELECT
+            CustomerId
+        FROM
+            Orders)
+
